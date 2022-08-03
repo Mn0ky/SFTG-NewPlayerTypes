@@ -6,7 +6,7 @@
   </a>
 </p>
 <p style="text-align: center;">
-  <a href="https://github.com/Mn0ky/QOL-Mod/releases/latest">
+  <a href="https://github.com/Mn0ky/SFTG-NewPlayerTypes/releases/latest">
     <img src="https://img.shields.io/github/downloads/Mn0ky/SFTG-NewPlayerTypes/total?label=Github%20downloads&logo=github" alt="">
   </a>
   <a href="https://www.gnu.org/licenses/MIT">
