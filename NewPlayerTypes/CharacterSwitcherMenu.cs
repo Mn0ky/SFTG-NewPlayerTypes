@@ -9,9 +9,9 @@ namespace NewPlayerTypes;
 
 public class CharacterSwitcherMenu : MonoBehaviour
 {
+    public static bool HasSelectedCharacter { get; private set; }
     public static byte LocalPlayerType { get; private set; }
     public static byte ReceivedPlayerType { get; set; }
-    public static bool HasSelectedCharacter { get; private set; }
     public static HoardHandler[] Hoards = new HoardHandler[2];
     
     private readonly DefaultControls.Resources _resources = new();
@@ -70,7 +70,7 @@ public class CharacterSwitcherMenu : MonoBehaviour
         }
     }
 
-    private GameObject CreateButton(string buttonText, UnityAction buttonOnClickMethod, Transform buttonParent = null)
+    private void CreateButton(string buttonText, UnityAction buttonOnClickMethod, Transform buttonParent)
     {
         var buttonObj = DefaultControls.CreateButton(_resources);
         
@@ -93,9 +93,7 @@ public class CharacterSwitcherMenu : MonoBehaviour
         text.richText = true;
         text.alignment = TextAlignmentOptions.Top;
 
-        if (buttonParent != null) buttonTransform.SetParent(buttonParent);
-
-        return buttonObj;
+        buttonTransform.SetParent(buttonParent);
     }
 
     private void SetCharacterType(byte playerType)

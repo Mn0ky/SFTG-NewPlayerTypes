@@ -233,8 +233,5 @@ class MultiplayerManagerPatches
         
         Debug.Log("Got player type: " + playerType + " and ID: " + playerID);
         ___m_PlayerPrefab = SpawnerHelper.GetPlayerObject(playerType, ___m_PlayerPrefab);
-
-        ___m_PlayerPrefab.GetComponentInChildren<ChatManager>().GetComponent<FollowTransform>().target =
-            ___m_PlayerPrefab.GetComponentInChildren<Head>().transform;
     }
 }

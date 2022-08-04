@@ -61,6 +61,10 @@ public static class SpawnerHelper
             // Gives special characters normal player jump sounds to prevent null references
             character.GetComponent<Movement>().jumpClips = playerPrefab.GetComponent<Movement>().jumpClips;
             
+            // Chat messages need to follow the correct head transform (not the player prefab's)
+            character.GetComponentInChildren<ChatManager>().GetComponent<FollowTransform>().target = 
+                character.GetComponentInChildren<Head>().transform;
+            
             foreach (var particleSys in character.GetComponentsInChildren<ParticleSystem>())
             {
                 if (particleSys.name != "punchPartilce") continue;
