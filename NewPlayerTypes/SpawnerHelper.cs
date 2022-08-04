@@ -43,22 +43,32 @@ public static class SpawnerHelper
     
         foreach (var hoard in hoards)
         {
-            var newCubeTest = Object.Instantiate(predictionSyncCubeTest, hoard.character.transform, 
-                true);
-            Object.Instantiate(chat, hoard.character.transform, false);
-            Object.Instantiate(gameCanvas, hoard.character.transform, true);
-            Object.Instantiate(damageParticleObj, hoard.character.GetComponentInChildren<BlockParticle>().transform, 
-                true);
+            var character = hoard.character;
+            var characterTransform = hoard.character.transform;
+            
+            var newCubeTest = Object.Instantiate(predictionSyncCubeTest, characterTransform, true);
+            Object.Instantiate(chat, characterTransform, false);
+            Object.Instantiate(gameCanvas, characterTransform, true);
+            Object.Instantiate(damageParticleObj, characterTransform.GetComponentInChildren<BlockParticle>().transform, true);
 
-            Traverse.Create(hoard.character.FetchComponent<NetworkPlayer>())
+            Traverse.Create(character.FetchComponent<NetworkPlayer>())
                 .Field("mHelpPredictionSphere")
                 .SetValue(newCubeTest.transform);
             
             // Adds component if missing so map switching coroutine wont have null references
-            hoard.character.FetchComponent<SetMovementAbility>();
+            character.FetchComponent<SetMovementAbility>();
             
             // Gives special characters normal player jump sounds to prevent null references
-            hoard.character.GetComponent<Movement>().jumpClips = playerPrefab.GetComponent<Movement>().jumpClips;
+            character.GetComponent<Movement>().jumpClips = playerPrefab.GetComponent<Movement>().jumpClips;
+            
+            foreach (var particleSys in character.GetComponentsInChildren<ParticleSystem>())
+            {
+                if (particleSys.name != "punchPartilce") continue;
+                
+                var particleSysMain = particleSys.main;
+                particleSysMain.startColor = (Color) new Color32(45, 45, 45, 255);
+                break;
+            }
         }
         
         Debug.Log("Changed player prefab!!");

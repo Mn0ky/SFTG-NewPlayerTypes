@@ -17,6 +17,6 @@ public class GameManagerPatch
     public static void StartMethodPostfix()
     {
         if (TimeEventPatch.IntroFinished && !Object.FindObjectOfType<CharacterSwitcherMenu>())
-            new GameObject("SwitcherHandler", typeof(CharacterSwitcherMenu));
+            _ = new GameObject("SwitcherHandler", typeof(CharacterSwitcherMenu));
     }
 }

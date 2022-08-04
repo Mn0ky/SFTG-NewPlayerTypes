@@ -27,8 +27,7 @@ class MultiplayerManagerPatches
             .GetMethod(nameof(RequestSpawnPlayerMethodPrefix)));
         harmonyInstance.Patch(requestSpawnPlayerMethod, prefix: requestSpawnPlayerMethodPrefix);
 
-        var onPlayerRequestingToSpawnMethod = AccessTools.Method(typeof(MultiplayerManager), 
-            "OnPlayerRequestingToSpawn");
+        var onPlayerRequestingToSpawnMethod = AccessTools.Method(typeof(MultiplayerManager), "OnPlayerRequestingToSpawn");
         var onPlayerRequestingToSpawnMethodPrefix = new HarmonyMethod(typeof(MultiplayerManagerPatches)
             .GetMethod(nameof(OnPlayerRequestingToSpawnPrefix)));
         harmonyInstance.Patch(onPlayerRequestingToSpawnMethod, prefix: onPlayerRequestingToSpawnMethodPrefix);

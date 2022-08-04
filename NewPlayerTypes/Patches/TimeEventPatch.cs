@@ -16,10 +16,9 @@ public class TimeEventPatch
 
     public static void StopAndHideMethodPostfix(TimeEvent __instance)
     {
-        if (__instance.transform.gameObject.name == "Intro" && !Object.FindObjectOfType<CharacterSwitcherMenu>())
-        {
-            new GameObject("SwitcherHandler", typeof(CharacterSwitcherMenu));
-            IntroFinished = true;
-        }
+        if (__instance.transform.gameObject.name != "Intro" || Object.FindObjectOfType<CharacterSwitcherMenu>()) return;
+        
+        _ = new GameObject("SwitcherHandler", typeof(CharacterSwitcherMenu));
+        IntroFinished = true;
     }
 }

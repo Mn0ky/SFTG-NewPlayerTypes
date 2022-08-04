@@ -14,12 +14,10 @@ public class ControllerHandlerPatch
 
     public static bool CreatePlayerMethodPrefix(ControllerHandler __instance, ref GameObject ___playerPrefab)
     {
-        if (__instance.players.Count < 4 && CharacterSwitcherMenu.HasSelectedCharacter)
-        {
-            ___playerPrefab = SpawnerHelper.GetPlayerObject(CharacterSwitcherMenu.LocalPlayerType, ___playerPrefab);
-            return true;
-        }
-
-        return false;
+        if (__instance.players.Count >= 4 || !CharacterSwitcherMenu.HasSelectedCharacter) return false;
+        
+        ___playerPrefab = SpawnerHelper.GetPlayerObject(CharacterSwitcherMenu.LocalPlayerType, ___playerPrefab);
+        
+        return true;
     }
 }
