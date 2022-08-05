@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace NewPlayerTypes;
+namespace NewPlayerTypes.Helpers;
 
 public static class SpawnerHelper
 {
@@ -55,23 +55,30 @@ public static class SpawnerHelper
                 .Field("mHelpPredictionSphere")
                 .SetValue(newCubeTest.transform);
             
-            // Adds component if missing so map switching coroutine wont have null references
+            // Adds SetMovementAbility component if missing so map switching coroutine wont have null references
             character.FetchComponent<SetMovementAbility>();
-            
             // Gives special characters normal player jump sounds to prevent null references
             character.GetComponent<Movement>().jumpClips = playerPrefab.GetComponent<Movement>().jumpClips;
-            
             // Chat messages need to follow the correct head transform (not the player prefab's)
             character.GetComponentInChildren<ChatManager>().GetComponent<FollowTransform>().target = 
                 character.GetComponentInChildren<Head>().transform;
-            
+            // Make sure all particles are special character black 
+            Color specialCharacterParticleColor = new Color32(45, 45, 45, 255);
             foreach (var particleSys in character.GetComponentsInChildren<ParticleSystem>())
             {
                 if (particleSys.name != "punchPartilce") continue;
                 
                 var particleSysMain = particleSys.main;
-                particleSysMain.startColor = (Color) new Color32(45, 45, 45, 255);
+                particleSysMain.startColor = specialCharacterParticleColor;
                 break;
+            }
+
+            if (character.name == "ZombieCharacterArms")
+            {
+                character.AddComponent<GrabTriggerer>(); // Let zombie be able to grab
+                character.GetComponent<GrabHandler>().grabClips = playerPrefab.GetComponent<GrabHandler>().grabClips;
+
+                character.GetComponent<Fighting>().punchForce = 12000;
             }
         }
         

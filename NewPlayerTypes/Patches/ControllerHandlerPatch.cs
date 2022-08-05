@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using NewPlayerTypes.Helpers;
 using UnityEngine;
 
 namespace NewPlayerTypes.Patches;
