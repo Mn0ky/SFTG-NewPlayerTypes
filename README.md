@@ -14,6 +14,8 @@
   </a>
 </p>
 
+https://user-images.githubusercontent.com/67206766/182985003-4b4d977e-a132-4fd0-b1e4-ac0e086344c0.mp4
+
 ## Description
 
 A mod that adds more character types to choose from!
@@ -32,8 +34,8 @@ else plays with, and vice-versa**.
 | Character Type | Advantages                                                                                                  | Disadvantages                                           |
 |----------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
 | The Bolt       | • Quick and nimble.                                                                                         | • Unable to pick up most weapons nor use melee weapons. |
-| The Player     | • Your average reliable Joe, well-rounded in all fields.<br> • Able to use all weapons where others cannot. | • Nothing special about it.                             |
-| The Zombie     | • Long and slender arms provide superior range, holding left-click may cause spontaneous flight :P          | • Unable to pick up most weapons nor use melee weapons. |
+| The Player     | • Your average reliable Joe, well-rounded in all fields.<br>• Able to use all weapons where others cannot. | • Nothing special about it.                             |
+| The Zombie     | • Long and slender arms provide superior range.<br>• Pressing the Tab key (changeable in config) allows you to grab an object; release by jumping.| • Unable to pick up most weapons nor use melee weapons. |
 
 ## Installation
 
@@ -44,3 +46,7 @@ must [download](https://github.com/Mn0ky/SFTG-SimpleAntiCheat/releases/latest/do
 and put the ``SimpleAntiCheat.dll`` into the folder as well, <ins>or the 
 mod will not run</ins>**.
 
+## Know Issues
+
+- Grabbing as a zombie will not appear as so to others. This can be fixed in a later update that provides a custom packet for 
+grabbing, letting others know that you did indeed grab an object.
