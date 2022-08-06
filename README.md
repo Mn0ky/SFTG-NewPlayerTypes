@@ -46,7 +46,7 @@ must [download](https://github.com/Mn0ky/SFTG-SimpleAntiCheat/releases/latest/do
 and put the ``SimpleAntiCheat.dll`` into the folder as well, <ins>or the 
 mod will not run</ins>**.
 
-## Know Issues
+## Known Issues
 
 - Grabbing as a zombie will not appear as so to others. This can be fixed in a later update that provides a custom packet for 
 grabbing, letting others know that you did indeed grab an object.
