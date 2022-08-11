@@ -99,7 +99,7 @@ class MultiplayerManagerPatches
                 {
                     var prefixData = new byte[] { 1, playerID };
                     var getStatusDataMethod = AccessTools.Method(typeof(MultiplayerManager), "GetStatusData");
-                    var statusData = (byte[]) getStatusDataMethod.Invoke(__instance, new object[]{ prefixData });
+                    var statusData = (byte[]) getStatusDataMethod.Invoke(__instance, new object[] { prefixData });
                     
                     var finalData = new byte[statusData.Length + 1];
                     statusData.CopyTo(finalData, 0);

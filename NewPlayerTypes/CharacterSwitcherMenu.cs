@@ -41,7 +41,8 @@ public class CharacterSwitcherMenu : MonoBehaviour
         "+ Able to use all weapons where others cannot.";
     private const string ZombieDescription =
         "<u>The Zombie</u><#025839>\n\n\n\n\n\n" +
-        "+ Long and slender arms provide superior range, holding left-click may cause spontaneous flight :P\n\n\n<#8b0000>" +
+        "+ Long and slender arms provide superior range.\n\n\n" + 
+        "+ Pressing the Tab key (changeable in config) allows you to grab an object; release by jumping.\n\n\n<#8b0000>" +
         "- Unable to pick up most weapons nor use melee weapons.";
 
     private void Start()

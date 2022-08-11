@@ -4,11 +4,7 @@ namespace NewPlayerTypes.Helpers;
 
 public static class EnumHelper
 {
-    // From: https://stackoverflow.com/a/1082587
-    public static TEnum ToEnum<TEnum>(this string strEnumValue, TEnum defaultValue)
-    {
-        if (!Enum.IsDefined(typeof(TEnum), strEnumValue)) return defaultValue;
-
-        return (TEnum) Enum.Parse(typeof(TEnum), strEnumValue);
-    }
+    // Adapted From: https://stackoverflow.com/a/1082587, does not support bitflag enums or enums without a 0 'default' value
+    public static TEnum ToEnum<TEnum>(this string strEnumValue) 
+        => !Enum.IsDefined(typeof(TEnum), strEnumValue) ? default : (TEnum) Enum.Parse(typeof(TEnum), strEnumValue);
 }
