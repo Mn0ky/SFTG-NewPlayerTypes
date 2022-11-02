@@ -50,5 +50,3 @@ mod will not run</ins>**.
 
 - Grabbing as a zombie will not appear as so to others. This can be fixed in a later update that provides a custom packet for 
 grabbing, letting others know that you did indeed grab an object.
-
-- A special character's sound effects do not much the related volume control, and therefore may be louder.
